@@ -3,7 +3,7 @@ import { prisma } from "@/lib/db";
 import { stripe } from "@/lib/stripe";
 import { NextResponse } from "next/server";
 
-const settingUrl = process.env.NEXTAUTH_URLS + "/settings"
+const settingUrl = process.env.NEXTAUTH_URL + "/settings"
 
 export async function GET() {
     console.log("hello")
