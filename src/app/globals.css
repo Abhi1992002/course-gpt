@@ -136,6 +136,10 @@ body{
   background: transparent;
 }
 
+.scroll-container ::-webkit-scrollbar{
+  display: none;
+}
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #7e7e7e;

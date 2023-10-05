@@ -6,7 +6,7 @@ import {Lexend} from 'next/font/google'
 
 import { Providers } from '@/components/Provider'
 import { Toaster } from "@/components/ui/toaster"
-import Navbar from '@/components/home/Navbar'
+import Navbars from '@/components/navbar/Navbar'
 
 
 const lexend = Lexend({
@@ -26,9 +26,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(lexend.className , "antialiased min-h-screen pt-16")}>
+      <body className={cn(lexend.className , "antialiased min-h-screen")}>
         <Providers attribute="class" defaultTheme="system" enableSystem>
-        <Navbar />
+        <Navbars />
         {children}
         </Providers>
         <Toaster />

@@ -20,7 +20,6 @@ type ConfirmChaptersProps = {
     const [loading ,setLoading] = React.useState(false)
     const chapterRefs : Record<string, React.RefObject<ChapterCardHandler>> = {};
 
-
     course.units.forEach(unit => {
         unit.chapters.forEach(chapter => {
             chapterRefs[chapter.id] = React.useRef(null)

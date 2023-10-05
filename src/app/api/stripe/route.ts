@@ -6,7 +6,6 @@ import { NextResponse } from "next/server";
 const settingUrl = process.env.NEXTAUTH_URL + "/settings"
 
 export async function GET() {
-    console.log("hello")
     try {
         const session = await getAuthSession()
         if(!session?.user){

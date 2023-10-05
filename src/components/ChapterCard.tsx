@@ -31,7 +31,7 @@ const ChapterCard = React.forwardRef<ChapterCardHandler , ChapterCardProps>(({ c
     }
 })
 
-//it memorize the function an dhave value if i do rerender
+//it memorize the function and have value if i do rerender
 const addChapterIdToSet = React.useCallback(() => {
  
   setCompleteChapters((prev) => {
@@ -51,11 +51,13 @@ React.useEffect(()=>{
 
 React.useImperativeHandle(ref , () => ({
     async triggerLoad(){
-      //if i have already generated the videoId
+      //if i have already generated the videoId then course already created
       if(chapter.videoId){
         addChapterIdToSet()
         return 
       }
+
+      // sending 
         getChapterinfo(undefined , {
             onSuccess : () => {
                setSuccess(true)
@@ -73,6 +75,8 @@ React.useImperativeHandle(ref , () => ({
         })
     }
   }))
+
+  
   return (
     <div
       key={chapter.id}

@@ -74,7 +74,7 @@ export const CreateCourseForm = ({isPro}: CreateCourseFormProps) => {
           console.log(error)
           toast({
             title: "Error",
-            description: "Something wwent wrong on backend",
+            description: "Something went wrong on backend",
             variant:"destructive"
           })
         }

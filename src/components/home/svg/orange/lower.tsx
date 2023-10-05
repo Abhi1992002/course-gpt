@@ -5,10 +5,10 @@ type LowerSvgOrangeProps = {};
 export const LowerSvgOrange = ({}: LowerSvgOrangeProps) => {
   return (
     <>
-      <svg
+      {/* <svg
         width="58"
         height="147"
-        className="absolute top-0 -translate-y-[30%] left-[50%]"
+        className="absolute top-0 -translate-y-[30%] left-[50%] "
         viewBox="0 0 58 147"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -146,12 +146,12 @@ export const LowerSvgOrange = ({}: LowerSvgOrangeProps) => {
             />
           </clipPath>
         </defs>
-      </svg>
+      </svg> */}
 
-      <div className="w-[3px] h-[30vh] bg-orange-500"></div>
+      <div className="w-[3px] h-[30vh] bg-gradient-to-t from-black to-orange-500"></div>
       <div className="home-campaign-glowing-icon-glow-2 w-[3px] h-[30vh] absolute left-[50%] bottom-0 translate-x-[50%]"></div>
 
-      <svg
+      {/* <svg
         width="82"
         height="214"
         className="absolute bottom-0 right-[50%]"
@@ -182,7 +182,7 @@ export const LowerSvgOrange = ({}: LowerSvgOrangeProps) => {
             <stop offset="0.956186" stopColor="#196C2E" stopOpacity="0" />
           </linearGradient>
         </defs>
-      </svg>
+      </svg> */}
     </>
   );
 };

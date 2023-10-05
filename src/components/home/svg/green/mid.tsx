@@ -6,7 +6,7 @@ export const MidGreenSvg = ({}: MidGreenSvgProps) => {
   return (
     <>
       <svg
-        className="absolute top-[50%] left-[-52px] translate-y-[-50%]"
+        className="absolute hidden sm:block top-[50%] left-[-52px] translate-y-[-50%]"
         width="52"
         height="253"
         viewBox="0 0 52 253"

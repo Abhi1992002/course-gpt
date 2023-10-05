@@ -8,6 +8,7 @@ import {SessionProvider} from 'next-auth/react'
 import {
   RecoilRoot,
 } from 'recoil';
+import {NextUIProvider} from "@nextui-org/react";
 
 const queryClient = new QueryClient()
 
@@ -17,7 +18,9 @@ export function Providers({ children, ...props }: ThemeProviderProps) {
    <NextThemesProvider {...props}>
     <SessionProvider>
       <RecoilRoot>
+      <NextUIProvider>
     {children}
+     </NextUIProvider>
      </RecoilRoot>
     </SessionProvider>
     </NextThemesProvider>

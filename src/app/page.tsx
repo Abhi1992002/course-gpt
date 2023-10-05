@@ -1,6 +1,6 @@
 "use client"
 import Background from "@/components/background/page";
-import Navbar from "@/components/home/Navbar";
+import Navbar from "@/components/navbar/Navbar";
 import { About } from "@/components/home/about/about";
 import { Feature } from "@/components/home/feature/feature";
 
@@ -13,6 +13,7 @@ import { Steps } from "@/components/home/stepper/steps";
 import { Loading } from "@/components/Loading";
 import { useRecoilValue } from "recoil";
 import { loadingState } from "@/state/laoding";
+import { Footer } from "@/components/home/footer";
 
 export default function Home() {
   const [dimension, setDimension] = useState({width:0, height:0});
@@ -51,7 +52,7 @@ export default function Home() {
       <MarqueeClient />
       <Feature />
       <About />
-      <Steps />
+      <Footer />
         </>
       }
    

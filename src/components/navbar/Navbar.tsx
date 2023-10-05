@@ -1,18 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
 import { getAuthSession } from '@/lib/auth';
-import { ThemeToggle } from '../ThemeToggle';
-import { UserAccountNav } from '../userAccountNav';
-import { SignInButton } from '../SignInButton';
-type NavbarProps = {}
+import { NavbarComponent } from '../ui/navbar';
+import { Session } from '@prisma/client';
+// import { ThemeToggle } from '../ThemeToggle';
+// import { UserAccountNav } from '../userAccountNav';
+// import { SignInButton } from '../SignInButton';
 
- const Navbar = async({}: NavbarProps) => {
+
+ const Navbars = async() => {
 
   const session = await getAuthSession()
 
-  return (
-    <div className='w-[900px] max-w-[90vw] py-[15px] px-[20px] fixed top-[20px] left-[50%] rounded-full translate-x-[-50%]  bg-background/80 backdrop-blur-sm border border-foreground/40 z-[2] flex items-center'>
-       <div className='lg:text-lg md:text-md text-sm font-bold uppercase flex-1'>
+  return ( <>
+       {/* <div className='lg:text-lg md:text-md text-sm font-bold uppercase flex-1'>
         <Link href={'/gallery'} className='lg:text-lg md:text-md text-sm'>
           courseGPT
         </Link>
@@ -44,9 +45,11 @@ type NavbarProps = {}
                     <SignInButton />
                 )
               }
-       </div>
-    </div>
+       </div> */}
+      
+      <NavbarComponent session={session}/>
+    </>
   );
 };
 
-export default Navbar
+export default Navbars

@@ -13,9 +13,9 @@ export const MainVideoSummary = ({unit,unitIndex,chapter,chapterIndex}: MainVide
 
 
   return (
-    <div className='flex-[2] mt-16'>
+    <div className='w-[90%] mt-16'>
         <h4 className='text-sm uppercase text-secondary-foreground/60'> 
-             UNit {unitIndex+1} &bull;  Chapter {chapterIndex+1}
+             Unit {unitIndex+1} &bull;  Chapter {chapterIndex+1}
         </h4>
         <h1 className='text-4xl font-bold'>
             {chapter.name}
