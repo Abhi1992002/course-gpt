@@ -1,17 +1,20 @@
 "use client";
+
 import React from "react";
-import { Globe } from "../globe/globe";
 import { motion } from "framer-motion";
+import { Globe } from "../globe/globe";
 import { UpperSvgGreen } from "../svg/green/upper";
 import { LowerSvgPink } from "../svg/pink/lower";
 import { MidGreenSvg } from "../svg/green/mid";
-import {container,item} from './feature_animation'
+import { container, item } from "./feature_animation";
+import { ScrollShadow } from "@nextui-org/react";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 type FeatureProps = {};
 
-export const Feature = ({}: FeatureProps) => {
-
-
+export function Feature({}: FeatureProps) {
+  const router = useRouter();
   return (
     <div className="flex items-center justify-center  h-[130vh]">
       <div className="w-[100vw] sm:1500px h-[100%] flex items-center sm:justify-end justify-center relative">
@@ -19,7 +22,7 @@ export const Feature = ({}: FeatureProps) => {
         <div className="absolute left-[0]  lg:top-[0%] bottom-0 md:bottom-[-40%]">
           <Globe />
         </div>
-       
+
         {/* box-right */}
         <div className="h-[100%] sm:w-[80%] sm:max-w-[700px] w-[90%] sm:mr-[70px]">
           {/* upper */}
@@ -37,15 +40,38 @@ export const Feature = ({}: FeatureProps) => {
             </motion.div>
           </motion.div>
 
-          {/* lower */}
-          <div className="w-[100%] h-[60vh] bg-secondary rounded-lg dark:border-[#30363d] border-[0.5px] dark:box-shadows shadow-2xl relative z-[1]">
+          {/* content */}
+          <div className="w-[100%] h-[60vh] flex items-center justify-center bg-secondary rounded-lg dark:border-[#30363d] border-[0.5px] dark:box-shadows shadow-2xl relative z-[1]">
             <MidGreenSvg />
+            <ScrollShadow
+              className="w-[100%] h-[100%] flex items-center gap-[40px] md:gap-[70px] flex-col"
+              hideScrollBar
+            >
+              <h1 className="w-[95%] text-center mt-[40px] text-xl sm:text-2xl font-bold">
+                About
+              </h1>
+              <p className="text-foreground w-[90%] md:w-[70%] text-center">
+                Welcome to courseGPT, a passion project that leverages the power
+                of AI, YouTube API, and Unsplash API to craft captivating
+                courses. We're all about making learning an enjoyable journey,
+                providing dynamic content that's designed for fun and curiosity
+                rather than profit. Join us in redefining education with
+                innovation and accessibility, where every click brings you
+                closer to knowledge and adventure.
+              </p>
+              <Button
+                onClick={() => router.push("/create")}
+                className="mb-[100px] cursor-pointer"
+              >
+                Create course
+              </Button>
+            </ScrollShadow>
           </div>
 
           {/* lower */}
           <motion.div
             variants={container}
-            whileInView={"show"}
+            whileInView="show"
             initial="hidden"
             className="w-[100%] h-[50vh] flex items-center justify-center relative z-[1]"
           >
@@ -57,9 +83,9 @@ export const Feature = ({}: FeatureProps) => {
             </motion.div>
           </motion.div>
 
-          <div></div>
+          <div />
         </div>
       </div>
     </div>
   );
-};
+}

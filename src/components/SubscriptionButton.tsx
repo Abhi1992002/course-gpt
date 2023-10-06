@@ -1,40 +1,35 @@
-"use client"
+"use client";
 
-import React from 'react';
-import { Button } from './ui/button';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
+import { Button } from "./ui/button";
 
 type SubscriptionButtonProps = {
-    isPro : boolean
-}
+  isPro: boolean;
+};
 
-export const SubscriptionButton = ({isPro}: SubscriptionButtonProps) => {
+export function SubscriptionButton({ isPro }: SubscriptionButtonProps) {
+  const [loading, setLoading] = React.useState(false);
 
-    const [loading , setLoading] = React.useState(false)
-
-    const handleSubscribe = async() => {
-        setLoading(true)
-        try {
-            const response = await axios.get('/api/stripe')
-            window.location.href = response.data.url
-        } catch (error) {
-            console.log("billing error")
-        }
-        finally{
-            setLoading(false)
-        }
-     
+  const handleSubscribe = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get("/api/stripe");
+      window.location.href = response.data.url;
+    } catch (error) {
+      console.log("billing error");
+    } finally {
+      setLoading(false);
     }
+  };
 
   return (
     <Button
-    className='mt-4'
-    disabled={loading}
-    onClick={handleSubscribe}
+      className="mt-4 bg-foreground"
+      disabled={loading}
+      onClick={handleSubscribe}
     >
-       {
-        isPro ? "Manage Subscription" : "upgrade"
-       }
+      {isPro ? "Manage Subscription" : "upgrade"}
     </Button>
   );
-};
+}

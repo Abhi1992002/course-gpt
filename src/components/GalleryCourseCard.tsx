@@ -1,10 +1,11 @@
 "use client";
-import React from "react";
 
-import { Card, CardBody, Image } from "@nextui-org/react";
+import React, { useState } from "react";
+import { Card, CardBody, Image, ScrollShadow } from "@nextui-org/react";
 import { Chapter, Course, Unit } from "@prisma/client";
-import { ScrollShadow } from "@nextui-org/react";
 import Link from "next/link";
+import { useRecoilValue } from "recoil";
+import { courseState } from "@/state/courses";
 
 type GalleryCourseCardProps = {
   course: Course & {
@@ -18,7 +19,8 @@ export function GalleryCourseCard({ course }: GalleryCourseCardProps) {
   return (
     <Card
       isBlurred
-      className="border-1 scroll-container transition-all duration-500 ease-in-out  bg-background/60 dark:bg-default-100/50 max-h-[400px] h-[400px] max-w-[340px] w-[340px] pt-[10px] pb-[10px]"
+      className="border-1 scroll-container transition-all duration-500 ease-in-out  bg-background dark:bg-background max-h-[400px] h-[400px] max-w-[340px] w-[340px] pt-[10px] pb-[10px]
+      "
       shadow="sm"
     >
       <ScrollShadow className="w-[340px] h-[400px]">
@@ -41,16 +43,14 @@ export function GalleryCourseCard({ course }: GalleryCourseCardProps) {
               </span>
             </Link>
             <div className="flex flex-col col-span-6 mt-[30px] md:col-span-8 overflow-hidden">
-              {course.units.map((unit, i) => {
-                return (
-                  <Link
-                    href={`course/${course.id}/${i}/0`}
-                    className="hover:text-green-500"
-                  >
-                    {unit.name}
-                  </Link>
-                );
-              })}
+              {course.units.map((unit, i) => (
+                <Link
+                  href={`course/${course.id}/${i}/0`}
+                  className="hover:text-green-500"
+                >
+                  {unit.name}
+                </Link>
+              ))}
             </div>
           </div>
         </CardBody>

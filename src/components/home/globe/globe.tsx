@@ -1,13 +1,12 @@
-import React from 'react';
-import GlobeClient from './globe-client';
+import React from "react";
+import GlobeClient from "./globe-client";
 
-type GlobeProps = {}
+type GlobeProps = {};
 
-export const Globe = ({}: GlobeProps) => {
-
+export function Globe({}: GlobeProps) {
   return (
     <div>
       <GlobeClient />
     </div>
   );
-};
+}

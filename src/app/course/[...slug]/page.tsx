@@ -1,13 +1,10 @@
-
 import CourseSideBar from "@/components/CourseSideBar";
-import { MainVideoSummary } from "@/components/MainVideoSummary";
+import { MiddleCourse } from "@/components/MiddleCourse";
 import QuizCard from "@/components/QuizCard";
+import { SelectorCourse } from "@/components/SelectorCourse";
 import { prisma } from "@/lib/db";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
-
 
 type CoursePageProps = {
   params: {
@@ -39,91 +36,39 @@ const CoursePage = async ({ params: { slug } }: CoursePageProps) => {
     return redirect("/gallery");
   }
 
-  let unitIndex = parseInt(unitIndexParam);
-  let chapterIndex = parseInt(chapterIndexParam);
+  const unitIndex = parseInt(unitIndexParam);
+  const chapterIndex = parseInt(chapterIndexParam);
 
   const unit = course.units[unitIndex];
 
   if (!unit) {
-    return redirect(`/gallery`);
+    return redirect("/gallery");
   }
 
   const chapter = unit.chapters[chapterIndex];
 
   if (!chapter) {
-    return redirect(`/gallery`);
+    return redirect("/gallery");
   }
-  const nextChapter = unit.chapters[chapterIndex + 1];
-  const prevChapter = unit.chapters[chapterIndex - 1];
+
   return (
-    <div className="flex w-screen h-screen">
+    <div className="w-screen h-[calc(100vh-70px)] flex overflow-hidden relative">
+      <SelectorCourse />
+
       {/* sidebar */}
-      <div className="flex-1 w-[100%] h-[100%] pt-[100px]">
-    
-            <CourseSideBar course={course} currentChapterId={chapter.id} />
-      
-      </div>
+      <CourseSideBar course={course} currentChapterId={chapter.id} />
 
-      {/* middle portion */}
-      <div className="flex-2 h-[100%] relative">
-        <MainVideoSummary
-          chapter={chapter}
-          chapterIndex={chapterIndex}
-          unitIndex={unitIndex}
-          unit={unit}
-        />
-        <div className="stick bottom-[-50%] h-[100px] w-[100%] flex items-end bg-red-400">
-          <div className="w-[100%]">
-          <div className="w-[100%] h-[1px] mt-4 text-gray-500 bg-gray-500 " />
-          <div className="flex pb-8">
-            {prevChapter && (
-              <Link
-                href={`/course/${course.id}/${unitIndex}/${chapterIndex - 1}`}
-                className="flex mt-4 mr-auto w-fit"
-              >
-                <div className="flex items-center">
-                  <ChevronLeft className="w-6 h-6 mr-1" />
-                  <div className="flex flex-col items-start">
-                    <span className="text-sm text-secondary-foreground/60">
-                      Previous
-                    </span>
-                    <span className="text-xl font-bold">
-                      {prevChapter.name}
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            )}
-            {nextChapter && (
-              <Link
-                href={`/course/${course.id}/${unitIndex}/${chapterIndex + 1}`}
-                className="flex mt-4 ml-auto w-fit"
-              >
-                <div className="flex items-center">
-                  <div className="flex flex-col items-start">
-                    <span className="text-sm text-secondary-foreground/60">
-                      Next
-                    </span>
-                    <span className="text-xl font-bold">
-                      {nextChapter.name}
-                    </span>
-                  </div>
-                  <ChevronRight className="w-6 h-6 mr-1" />
-                </div>
-              </Link>
-            )}
-          </div>
-          </div>
-         
-        </div>
-        </div>
+      {/* middle */}
+      <MiddleCourse
+        unitIndex={unitIndex}
+        chapterIndex={chapterIndex}
+        course={course}
+        chapter={chapter}
+        unit={unit}
+      />
 
-
-        {/* quiz box */}
-        <div className="flex-1 h-[100%] ">
-          <QuizCard chapter={chapter} />
-        </div>
-
+      {/* quiz */}
+      <QuizCard chapter={chapter} />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 
 type UpperSvgProps = {};
 
-export const UpperSvgGreen = ({}: UpperSvgProps) => {
+export function UpperSvgGreen({}: UpperSvgProps) {
   return (
     <>
       <div className="absolute translate-x-[-48%] top-[50%]">
@@ -155,9 +155,9 @@ export const UpperSvgGreen = ({}: UpperSvgProps) => {
         </svg>
       </div>
 
-      <div className="w-[3px]  h-[20vh]  bg-green-500"></div>
+      <div className="w-[3px]  h-[20vh]  bg-green-500" />
 
-      <div className="home-campaign-glowing-icon-glow-1 w-[4px] h-[20vh] absolute left-[50%] translate-x-[50%]"></div>
+      <div className="home-campaign-glowing-icon-glow-1 w-[4px] h-[20vh] absolute left-[50%] translate-x-[50%]" />
     </>
   );
-};
+}

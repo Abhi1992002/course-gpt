@@ -2,8 +2,7 @@ import React from "react";
 
 type LowerSvgPinkProps = {};
 
-export const LowerSvgPink = ({}: LowerSvgPinkProps) => {
-
+export function LowerSvgPink({}: LowerSvgPinkProps) {
   return (
     <>
       <svg
@@ -149,8 +148,8 @@ export const LowerSvgPink = ({}: LowerSvgPinkProps) => {
         </defs>
       </svg>
 
-      <div className="w-[3px] h-[50vh] bg-pink-500"></div>
-      <div className="home-campaign-glowing-icon-glow-2 w-[3px] h-[50vh] absolute left-[50%] bottom-0 translate-x-[50%]"></div>
+      <div className="w-[3px] h-[50vh] bg-pink-500" />
+      <div className="home-campaign-glowing-icon-glow-2 w-[3px] h-[50vh] absolute left-[50%] bottom-0 translate-x-[50%]" />
 
       <svg
         width="82"
@@ -186,4 +185,4 @@ export const LowerSvgPink = ({}: LowerSvgPinkProps) => {
       </svg>
     </>
   );
-};
+}
