@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Globe } from "../globe/globe";
 import { UpperSvgGreen } from "../svg/green/upper";
 import { LowerSvgPink } from "../svg/pink/lower";
 import { MidGreenSvg } from "../svg/green/mid";
@@ -18,11 +17,6 @@ export function Feature({}: FeatureProps) {
   return (
     <div className="flex items-center justify-center  h-[130vh]">
       <div className="w-[100vw] sm:1500px h-[100%] flex items-center sm:justify-end justify-center relative">
-        {/* globe-left */}
-        <div className="absolute hidden sm:block left-[0]  lg:top-[0%] bottom-0 md:bottom-[-40%]">
-          <Globe />
-        </div>
-
         {/* box-right */}
         <div className="h-[100%] sm:w-[80%] sm:max-w-[700px] w-[90%] sm:mr-[70px]">
           {/* upper */}
