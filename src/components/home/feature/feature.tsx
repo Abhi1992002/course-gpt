@@ -19,7 +19,7 @@ export function Feature({}: FeatureProps) {
     <div className="flex items-center justify-center  h-[130vh]">
       <div className="w-[100vw] sm:1500px h-[100%] flex items-center sm:justify-end justify-center relative">
         {/* globe-left */}
-        <div className="absolute left-[0]  lg:top-[0%] bottom-0 md:bottom-[-40%]">
+        <div className="absolute hidden sm:block left-[0]  lg:top-[0%] bottom-0 md:bottom-[-40%]">
           <Globe />
         </div>
 
