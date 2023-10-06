@@ -6,7 +6,7 @@ import { createChaptersSchema } from "@/validators/course";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
-import { Plus, Trash } from "lucide-react";
+import { Loader2, Plus, Trash } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
@@ -16,6 +16,8 @@ import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "./ui/form";
 import SubscriptionAction from "./SubscriptionAction";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { loadingState } from "@/state/loading";
 
 type CreateCourseFormProps = {
   isPro: boolean;
@@ -53,6 +55,8 @@ export function CreateCourseForm({ isPro }: CreateCourseFormProps) {
     },
   });
 
+  const [loading, setLoading] = useRecoilState(loadingState);
+
   const { toast } = useToast();
 
   const onSubmit = (data: Input) => {
@@ -63,7 +67,7 @@ export function CreateCourseForm({ isPro }: CreateCourseFormProps) {
         variant: "destructive",
       });
     }
-
+    setLoading(true);
     // whe we call createChapters => it hit the endpoint
     createChapters(data, {
       onSuccess: ({ course_id }) => {
@@ -174,6 +178,7 @@ export function CreateCourseForm({ isPro }: CreateCourseFormProps) {
             size="lg"
           >
             Create Course
+            {loading && <Loader2 className="animate-spin w-4 ml-[20px]" />}
           </Button>
         </form>
       </Form>
