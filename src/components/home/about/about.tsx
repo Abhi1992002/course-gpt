@@ -6,7 +6,7 @@ import { AboutContent } from "./AboutContent";
 
 type AboutProps = {};
 
-export function About({}: AboutProps) {
+export default function About({}: AboutProps) {
   return (
     <div className="w-screen h-[screen] flex flex-col items-center relative">
       <div className="w-[90%] sm:w-[80%] h-[70vh] bg-background rounded-lg border-[0.5px] dark:box-shadows shadow-2xl relative">

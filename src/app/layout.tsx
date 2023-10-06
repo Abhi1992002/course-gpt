@@ -9,6 +9,7 @@ import Navbars from '@/components/navbar/Navbar';
 
 const lexend = Lexend({
   subsets: ['latin'],
+  weight:['500']
 });
 
 export const metadata: Metadata = {

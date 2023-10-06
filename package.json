@@ -11,6 +11,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.1",
     "@next-auth/prisma-adapter": "^1.0.7",
+    "@next/bundle-analyzer": "^13.5.4",
     "@nextui-org/react": "^2.1.13",
     "@prisma/client": "^5.3.1",
     "@radix-ui/react-avatar": "^1.0.3",
@@ -31,7 +32,6 @@
     "axios": "^1.5.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
-    "cobe": "^0.6.3",
     "framer": "^2.4.1",
     "framer-motion": "^10.16.4",
     "gsap": "^3.12.2",
@@ -57,7 +57,6 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^9.0.0",
     "prisma": "^5.3.1"
   }
 }

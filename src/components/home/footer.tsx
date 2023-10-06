@@ -1,10 +1,9 @@
-import { GithubIcon, Linkedin, TwitterIcon } from "lucide-react";
+"use client";
+import { GithubIcon, TwitterIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-type FooterProps = {};
-
-export function Footer({}: FooterProps) {
+export function Footer() {
   return (
     <div className="w-full sm:h-[100vh] h-[120vh] sm:min-h-80vh flex items-end justify-center bg-black">
       <div className="md:w-[85%]  w-full px-4 text-white flex flex-col">

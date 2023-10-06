@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 
 type FeatureProps = {};
 
-export function Feature({}: FeatureProps) {
+export default function Feature({}: FeatureProps) {
   const router = useRouter();
   return (
     <div className="flex items-center justify-center  h-[130vh]">

@@ -22,10 +22,6 @@ import axios from "axios";
 import { useSetRecoilState } from "recoil";
 import { galleryLoadingState } from "@/state/galleryLoading";
 
-type GallerySearchProps = {
-  courses: Course[];
-};
-
 const searchSchema = z.object({
   search: z
     .string()
@@ -35,7 +31,7 @@ const searchSchema = z.object({
 
 type SearchInput = z.infer<typeof searchSchema>;
 
-export function GallerySearch({ courses }: GallerySearchProps) {
+export default function GallerySearch() {
   const form = useForm<z.infer<typeof searchSchema>>({
     resolver: zodResolver(searchSchema),
     defaultValues: {

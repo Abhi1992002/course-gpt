@@ -42,6 +42,10 @@ export async function POST(req: Request) {
       },
     });
 
+    // const courses = await prisma.course.deleteMany({});
+
+    // console.log("delete successful");
+
     return NextResponse.json({ courses }, { status: 200 });
   } catch (error) {
     return NextResponse.json(

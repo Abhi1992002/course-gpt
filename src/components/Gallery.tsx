@@ -16,40 +16,40 @@ type courseProp = Course & {
   })[];
 };
 
-export function Gallery() {
+export default function Gallery() {
   const [courseList, setCourseList] = useRecoilState<any>(courseState);
 
   const [loading, setLoading] = useRecoilState(galleryLoadingState);
 
-  const { mutate: getCourses } = useMutation({
-    mutationFn: async () => {
-      const response = await axios.post(
-        "/api/getSingleCourse",
-        {
-          search: "",
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      return response.data;
-    },
-  });
+  // const { mutate: getCourses } = useMutation({
+  //   mutationFn: async () => {
+  //     const response = await axios.post(
+  //       "/api/getSingleCourse",
+  //       {
+  //         search: "",
+  //       },
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
+  //     return response.data;
+  //   },
+  // });
 
-  useEffect(() => {
-    setLoading(false);
-    getCourses(undefined, {
-      onSuccess: (data) => {
-        setCourseList(data);
-        setLoading(true);
-      },
-      onError: () => {
-        console.log("error");
-      },
-    });
-  }, []);
+  // useEffect(() => {
+  //   setLoading(false);
+  //   getCourses(undefined, {
+  //     onSuccess: (data) => {
+  //       setCourseList(data);
+  //       setLoading(true);
+  //     },
+  //     onError: () => {
+  //       console.log("error");
+  //     },
+  //   });
+  // }, []);
 
   return (
     <>
