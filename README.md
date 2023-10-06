@@ -32,7 +32,7 @@ With this application, you can easily create and customize AI courses, making it
 
 Follow these steps to get the AI Course Generator up and running:
 
-1. Clone the repository: `git clone https://github.com/yourusername/ai-course-generator.git`
+1. Clone the repository: `git clone https://github.com/Abhi1992002/course-gpt.git`
 2. Install dependencies: `npm install` or `yarn install`
 3. Configure environment variables for API keys and other sensitive information.
 4. Start the application: `npm run dev` or `yarn dev`
