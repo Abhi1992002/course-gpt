@@ -35,7 +35,7 @@ export default function Feature({}: FeatureProps) {
           </motion.div>
 
           {/* content */}
-          <div className="w-[100%] h-[60vh] flex items-center justify-center bg-secondary rounded-lg dark:border-[#30363d] border-[0.5px] dark:box-shadows shadow-2xl relative z-[1]">
+          <div className="w-[100%] h-auto flex items-center justify-center bg-secondary rounded-lg dark:border-[#30363d] border-[0.5px] dark:box-shadows shadow-2xl relative z-[1]">
             <MidGreenSvg />
             <ScrollShadow
               className="w-[100%] h-[100%] flex items-center gap-[40px] md:gap-[70px] flex-col"
