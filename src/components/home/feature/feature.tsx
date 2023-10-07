@@ -9,6 +9,7 @@ import { container, item } from "./feature_animation";
 import { ScrollShadow } from "@nextui-org/react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 type FeatureProps = {};
 
@@ -17,8 +18,19 @@ export default function Feature({}: FeatureProps) {
   return (
     <div className="flex items-center justify-center  h-[130vh]">
       <div className="w-[100vw] sm:1500px h-[100%] flex items-center sm:justify-end justify-center relative">
+        {/* box left */}
+        <div className="w-[50%] hidden  h-[100%] lg:flex items-center justify-center">
+          <Image
+            src={"/robot.png"}
+            width={"300"}
+            height={"300"}
+            className="z-[2] relative top-[-100px] left-[-50px]"
+            alt="block"
+          />
+          <div className="w-[300px] h-[300px] absolute bg-blue-500 rounded-full blur-3xl top-[calc(52%-250px)]"></div>
+        </div>
         {/* box-right */}
-        <div className="h-[100%] sm:w-[80%] sm:max-w-[700px] w-[90%] sm:mr-[70px]">
+        <div className="h-[100%] lg:w-[50%] sm:max-w-[700px] w-[90%] sm:mr-[70px]">
           {/* upper */}
           <motion.div
             variants={container}

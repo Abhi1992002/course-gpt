@@ -1,7 +1,6 @@
 "use client";
 
 import { courseState } from "@/state/courses";
-import { Course } from "@prisma/client";
 import React from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
