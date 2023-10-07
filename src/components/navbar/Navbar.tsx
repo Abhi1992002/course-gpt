@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import { getAuthSession } from "@/lib/auth";
 import { NavbarComponent } from "../ui/navbar";
 
