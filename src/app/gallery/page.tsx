@@ -1,8 +1,8 @@
 import Background from "@/components/background/page";
-
 import React from "react";
-
 import dynamic from "next/dynamic";
+import { prisma } from "@/lib/db";
+import { Chapter, Course, Unit } from "@prisma/client";
 
 const Gallery = dynamic(() => import("@/components/Gallery"), {
   ssr: false,
@@ -11,7 +11,22 @@ const GallerySearch = dynamic(() => import("@/components/GallerySearch"), {
   ssr: false,
 });
 
+type courseProp = (Course & {
+  units: (Unit & {
+    chapters: Chapter[];
+  })[];
+})[];
+
 const GalleryPage = async () => {
+  const course: courseProp = await prisma.course.findMany({
+    include: {
+      units: {
+        include: {
+          chapters: true,
+        },
+      },
+    },
+  });
   return (
     <div className="py-auto mx-auto max-w-8xl">
       <Background />
@@ -22,7 +37,7 @@ const GalleryPage = async () => {
         <GallerySearch />
       </div>
       <div className="flex gap-4 flex-wrap items-center justify-center mb-[100px] mt-[100px]">
-        <Gallery />
+        <Gallery courses={course} />
       </div>
     </div>
   );
