@@ -28,11 +28,11 @@ const CreatePage = async ({}: CreatePageProps) => {
         <div className="mt-5 p-[1px] border-none animate-gradient bg-gradient-to-r from-pink-500 rounded-lg via-red-500 to-yellow-500 flex items-center justify-center">
           <div className="bg-secondary rounded-lg flex p-4">
             <InfoIcon className="w-12 h-12 mr-3 text-blue-400 " />
-            <div>
+            {/* <div>
               Enter in a course title , or what you want to larn about . Then
               enter a list of units, which are the specifics you want to learn.
               And our AI will generate a course for you
-            </div>
+            </div> */}
           </div>
         </div>
 

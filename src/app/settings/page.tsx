@@ -8,7 +8,7 @@ const SettingsPage = async ({}) => {
 
   return (
     <div className="w-[100vw] h-[90vh] flex items-center justify-center">
-      <Background />
+      {/* <Background /> */}
       <div className="py-8 flex items-center justify-center flex-col my-auto w-[300px] mx-auto border-1 backdrop-blur-3xl bg-background rounded-lg">
         <h1 className="text-3xl font-bold">Settings</h1>
         {isPro ? (

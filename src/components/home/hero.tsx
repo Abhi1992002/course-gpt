@@ -12,9 +12,9 @@ export function HeroPage({}: HeroPageProps) {
   return (
     <div className="w-screen h-screen  z-[1] flex items-center justify-center flex-col relative overflow-hidden">
       <div className="relative flex flex-col items-center justify-center ">
-        <h1 className="animate-gradient bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 inline-block text-transparent bg-clip-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl w-[90vw] sm:w-[60vw] text-center font-extrabold pb-[20px]">
+        {/* <h1 className="animate-gradient bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 inline-block text-transparent bg-clip-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl w-[90vw] sm:w-[60vw] text-center font-extrabold pb-[20px]">
           Create Courses Using AI
-        </h1>
+        </h1> */}
         <p className="text-foreground w-[90vw] sm:w-[60vw] text-center sm:text-lg md:text-xl">
           Unlock the Future of Learning with AI-Powered Courses. Experience
           Personalized Learning like Never Before. Join us on a journey of
