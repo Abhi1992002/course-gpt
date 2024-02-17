@@ -12,7 +12,7 @@ export function HeroPage({}: HeroPageProps) {
   return (
     <div className="w-screen h-screen  z-[1] flex items-center pt-20 flex-col relative overflow-hidden">
       <div className="relative flex flex-col items-center justify-center ">
-        <h1 className=" text-white inline-block text-transparent bg-clip-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl w-[90vw] sm:w-[60vw] text-center font-extrabold pb-[20px]">
+        <h1 className="text-black dark:text-white inline-block text-transparent bg-clip-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl w-[90vw] sm:w-[60vw] text-center font-extrabold pb-[20px]">
           Create Courses Using AI
         </h1>
         <p className="text-foreground w-[90vw] sm:w-[60vw] text-center sm:text-lg md:text-xl">
