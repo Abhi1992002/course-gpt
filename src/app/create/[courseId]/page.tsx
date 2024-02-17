@@ -3,7 +3,7 @@ import { getAuthSession } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 import { Info } from "lucide-react";
 import { redirect } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 type CreateChaptersProps = {
   params: {
@@ -39,7 +39,6 @@ const CreateChapters = async ({
 
   return (
     <>
-      {/* <pre>{JSON.stringify(course,null,2)}</pre> */}
       <div className="flex flex-col items-start max-w-xl mx-auto my-16">
         <h5 className="text-sm uppercase text-secondary-foreground/60">
           Course Name

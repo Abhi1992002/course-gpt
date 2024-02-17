@@ -28,6 +28,7 @@ function SubscriptionAction({}: SubscriptionActionProps) {
     <div className="flex flex-col items-center w-1/2 p-4 mx-auto mt-4 rounded-md bg-secondary">
       {data?.user.credits} / 10 Free Generation
       <Progress
+        color="white"
         className="mt-2"
         value={data?.user.credits ? (data.user.credits / 10) * 100 : 0}
       />

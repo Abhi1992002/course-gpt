@@ -42,17 +42,19 @@ export function NavbarComponent({ session }: NavbarComponentProps) {
         {session?.user && (
           <>
             <NavbarItem>
-              <Link color="foreground" href="/create">
+              <Link color="foreground" href="/create" className="text-sm">
                 Create-course
               </Link>
             </NavbarItem>
             <NavbarItem>
-              <Link href="/settings">Settings</Link>
+              <Link href="/settings" className="text-sm">
+                Settings
+              </Link>
             </NavbarItem>
           </>
         )}
         <NavbarItem>
-          <Link color="foreground" href="/gallery">
+          <Link color="foreground" href="/gallery " className="text-sm">
             Gallery
           </Link>
         </NavbarItem>

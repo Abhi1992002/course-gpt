@@ -1,14 +1,11 @@
 // /api/chapter/getInfo
 
 import { prisma } from "@/lib/db";
-import { strict_output } from "@/lib/gpt";
-import {
-  getQuestionFromTranscript,
-  getTranscript,
-  searchYoutube,
-} from "@/lib/youtube";
+import { getTranscript, searchYoutube } from "@/lib/youtube";
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { createSummary } from "../../../../../action/create-summary";
+import { createQuestion } from "../../../../../action/create-questions";
 
 const bodyParser = z.object({
   chapterId: z.string(),
@@ -41,38 +38,33 @@ export async function POST(req: Request) {
     const videoId = await searchYoutube(chapter.youtubeSearchQuery);
 
     let transcript = await getTranscript(videoId);
-    const maxLength = 500;
-    transcript = transcript
-      .split(" ")
-      .slice(0, maxLength)
-      .join(" ");
 
-    const { summary }: { summary: string } = await strict_output(
-      "you are an AI capable of summarising a youtube transcript",
-      `summarize in 250 words or less and do not talk of sponsor or anything unrealted to main topic , also do not introduce what the summary is about.\n${transcript}`,
-      {
-        summary: "Summary of the transcript",
-      }
-    );
+    const { summary } = await createSummary({ transcript });
 
-    console.log(summary, "summary");
+    const question1Promise = createQuestion({ transcript, segment: "first" });
+    const question2Promise = createQuestion({ transcript, segment: "second" });
+    const question3Promise = createQuestion({ transcript, segment: "third" });
+    const question4Promise = createQuestion({ transcript, segment: "fourth" });
 
-    const questions = await getQuestionFromTranscript(transcript, chapter.name);
-
-    console.log(questions, "question");
+    const questions = await Promise.all([
+      question1Promise,
+      question2Promise,
+      question3Promise,
+      question4Promise,
+    ]);
 
     await prisma.question.createMany({
       data: questions.map((question) => {
         const options = [
-          question.answer,
-          question.option1,
-          question.option2,
-          question.option3,
+          question.questions?.answer,
+          question.questions?.option1,
+          question.questions?.option2,
+          question.questions?.option3,
         ];
         options.sort(() => Math.random() - 0.5);
         return {
-          question: question.question,
-          answer: question.answer,
+          question: question.questions?.question!,
+          answer: question.questions?.answer!,
           options: JSON.stringify(options),
           chapterId,
         };
@@ -85,7 +77,7 @@ export async function POST(req: Request) {
       },
       data: {
         videoId,
-        summary,
+        summary: summary?.summary,
       },
     });
 
@@ -102,8 +94,6 @@ export async function POST(req: Request) {
         }
       );
     }
-
-    // console.log(error)
     return NextResponse.json(
       {
         success: false,

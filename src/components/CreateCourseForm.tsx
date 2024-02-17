@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { z } from "zod";
 import { createChaptersSchema } from "@/validators/course";
 import { useForm } from "react-hook-form";
@@ -18,6 +18,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel } from "./ui/form";
 import SubscriptionAction from "./SubscriptionAction";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { loadingState } from "@/state/loading";
+import { v4 as uuidv4 } from "uuid";
+import { useChat } from "ai/react";
 
 type CreateCourseFormProps = {
   isPro: boolean;
@@ -67,15 +69,14 @@ export function CreateCourseForm({ isPro }: CreateCourseFormProps) {
         variant: "destructive",
       });
     }
-    setLoading(true);
-    // whe we call createChapters => it hit the endpoint
     createChapters(data, {
-      onSuccess: ({ course_id }) => {
+      onSuccess: ({ courseId }) => {
         toast({
           title: "success",
           description: "course creates successfully",
         });
-        router.push(`/create/${course_id}`);
+
+        router.push(`/create/${courseId}`);
       },
       onError: (error) => {
         console.log(error);

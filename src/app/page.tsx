@@ -1,5 +1,3 @@
-import Background from "@/components/background/page";
-
 import { HeroPage } from "@/components/home/hero";
 import { MarqueeClient } from "@/components/home/marquee";
 import { Footer } from "@/components/home/footer";
@@ -20,7 +18,6 @@ export default function Home() {
   return (
     <div>
       <>
-        <Background />
         <HeroPage />
         <MarqueeClient />
 

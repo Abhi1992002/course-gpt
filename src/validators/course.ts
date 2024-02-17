@@ -7,3 +7,11 @@ export const createChaptersSchema = z.object({
     .max(100),
   units: z.array(z.string()),
 });
+export const MutationTypeSchema = z.object({
+  id: z.string(),
+  title: z
+    .string()
+    .min(3)
+    .max(100),
+  units: z.array(z.string()),
+});
