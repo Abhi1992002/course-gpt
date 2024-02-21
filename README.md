@@ -1,10 +1,17 @@
 # AI Course Generator
 
-The AI Course Generator is a web application that utilizes the power of OpenAI API, YouTube API, and Unsplash API to generate AI courses. It is built using a stack of modern technologies including Next.js, Prisma, Docker, Tailwind CSS, Stripe AI, Digital Ocean, Nginx, Recoil, TypeScript, Shadcn UI, and Next UI.
+course-gpt  🤖 combines OpenAI API, YouTube API, and Unsplash API to enable easy course creation. Transform ideas into educational content with AI assistance and rich media integration. 
 
 ![AI Course Generator](./website.png)
 
 With this application, you can easily create and customize AI courses, making it a valuable tool for both educators and AI enthusiasts.
+
+## Problem and Solution
+The biggest problem while creating this application was AI uncertainity means not able to get desired output.
+
+I used the output parser provided by langchain but still its creating issue.
+
+But still,I only got desired result in 8 out of 10 tries.
 
 ## Technologies Used
 
